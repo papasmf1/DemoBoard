@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { signOut, useSession } from 'next-auth/react'
-import { LayoutDashboard, LogOut, User } from 'lucide-react'
+import { LayoutDashboard, LogOut, MessageSquare, User } from 'lucide-react'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import {
   DropdownMenu,
@@ -17,6 +17,7 @@ import { cn, getInitials } from '@/lib/utils'
 
 const navItems = [
   { href: '/dashboard', label: '대시보드', icon: LayoutDashboard },
+  { href: '/board', label: '게시판', icon: MessageSquare },
   { href: '/profile', label: '프로필', icon: User },
 ]
 
@@ -88,6 +89,12 @@ export function Navbar() {
               <Link href="/dashboard" className="cursor-pointer">
                 <LayoutDashboard className="w-4 h-4" />
                 대시보드
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/board" className="cursor-pointer">
+                <MessageSquare className="w-4 h-4" />
+                게시판
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
