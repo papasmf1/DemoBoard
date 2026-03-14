@@ -54,10 +54,9 @@ export async function POST(request: Request) {
       { status: 201 }
     )
   } catch (error) {
-    const message = error instanceof Error ? error.message : String(error)
-    console.error('Registration error:', message)
+    console.error('Registration error:', error)
     return NextResponse.json(
-      { error: message },
+      { error: '서버 오류가 발생했습니다.' },
       { status: 500 }
     )
   }
